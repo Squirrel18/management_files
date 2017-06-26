@@ -15,9 +15,17 @@ body {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 2px 5px 1px rgba(0,0,0,0.2);
 }
 
-.index-separation {
-    margin-top: 30px;
+input {
+    font-size: 24px !important;
+}
+
+.index-separation-input {
+    margin-top: 10px;
     margin-bottom: 30px;
+}
+
+.top-separation {
+    margin-top: 100px;
 }
 
 

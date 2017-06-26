@@ -2,11 +2,17 @@ function log_submit() {
     
     let form = document.querySelector("form");
     const url = form.action;
+
+    var requestHeaders = new Headers();
+    requestHeaders.append('Cookie', 'csrf_integrity=' + document.querySelector("#hiddenData").value);
+
     let initRequest = { method: 'POST',
                         mode: 'same-origin',
                         cache: 'default',
+                        headers: requestHeaders,
+                        credentials: 'same-origin',
                         body: new FormData(form)
-                    };
+    };
 
     let request = new Request(url, initRequest);
 
@@ -20,7 +26,7 @@ function log_submit() {
         }
         return response.text();
     }).then(function(response) {
-        console.info(`${response}`);
+        alert(`${response}`);
     }).catch(function(error) {
         alert(error);
     });

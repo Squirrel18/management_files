@@ -24,6 +24,8 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()	{
+		$this->load->helper('form');
+        $this->load->library('form_validation');
 
 		$data['title'] = 'Gestión proyectos';
 

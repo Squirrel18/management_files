@@ -1,3 +1,4 @@
+<script src="<?php echo base_url('js/index.js'); ?>"></script>
 </head>
     <body>
 		<div class="container-fluid">
@@ -6,12 +7,12 @@
 					<h1 class="text-center"><?php echo $title ?></h1>
 					<div class="login-contain">
 						<div class="col-xs-offset-1 col-xs-10 text-center">
-							<form class="form-horizontal" action="<?php echo base_url('news/') ?>" method="post" onsubmit="log_submit()">
+							<form class="form-horizontal" action="<?php echo base_url('index.php/users/log_in') ?>" onsubmit="return log_submit();">
 								<div class="form-group">
-									<label for="inputEmail3" class="top-separation control-label">Email</label>
-									<input type="text" class="index-separation-input form-control text-center" id="inputEmail3" placeholder="Email">
-									<label for="inputPassword3" class="control-label">Password</label>
-									<input type="password" class="index-separation-input form-control text-center" id="inputPassword3" placeholder="Password">
+									<label for="user" class="top-separation control-label">Usuario</label>
+									<input type="text" name="user" class="index-separation-input form-control text-center" id="user" placeholder="Usuario">
+									<label for="pass" class="control-label">Contraseña</label>
+									<input type="password" name="passcode" class="index-separation-input form-control text-center" id="pass" placeholder="Contraseña">
 									<button type="submit" class="index-separation-input btn btn-default btn-lg btn-block">Sign in</button>
 								</div>
 							</form>

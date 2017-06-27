@@ -12,9 +12,9 @@
 								<div class="form-group">
 									<input type="hidden" id="hiddenData" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 									<label for="user" class="top-separation control-label">Usuario</label>
-									<input type="number" name="user" class="index-separation-input form-control text-center" id="user" placeholder="Usuario">
+									<input type="number" name="user" class="index-separation-input form-control text-center" id="user" placeholder="Usuario" require>
 									<label for="pass" class="control-label">Contraseña</label>
-									<input type="password" name="passcode" class="index-separation-input form-control text-center" id="pass" placeholder="Contraseña">
+									<input type="password" name="passcode" class="index-separation-input form-control text-center" id="pass" placeholder="Contraseña" require>
 									<button type="submit" class="index-separation-input btn btn-default btn-lg btn-block">Sign in</button>
 								</div>
 							</form>
@@ -23,12 +23,4 @@
 				</div>
 			</div>
 		</div>
-
-		<?php
-			/*$this->load->helper('form');
-			echo $this->security->get_csrf_hash();
-			echo form_open('users/test');*/
-		?>
-		<!--<input type="text" name="text">
-		<input type="submit" value="go">-->
 

@@ -4,7 +4,7 @@ function log_submit() {
     const url = form.action;
 
     var requestHeaders = new Headers();
-    requestHeaders.append('Cookie', 'csrf_integrity=' + document.querySelector("#hiddenData").value);
+    requestHeaders.append('Cookie', document.querySelector("#hiddenData").name + document.querySelector("#hiddenData").value);
 
     let initRequest = { method: 'POST',
                         mode: 'same-origin',

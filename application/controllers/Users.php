@@ -5,17 +5,25 @@ class Users extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->helper('url_helper');
+        $this->load->library('form_validation');
 
     }
 
     public function log_in() {
-        
-        $query = $this->user_model->log_in($this->input->get_post('user', TRUE));
 
-        if(isset($query)) {
-            echo "User found: " . $query['name'];
+        $this->form_validation->set_rules('user', 'Username', 'required');
+        $this->form_validation->set_rules('passcode', 'Password', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            echo "no data";
         } else {
-            echo "User not found";
+            $query = $this->user_model->log_in($this->input->get_post('user', TRUE), html_escape($this->input->get_post('passcode', TRUE)));
+
+            if(isset($query)) {
+                echo "User found: " . $query['name'];
+            } else {
+                echo "User not found";
+            }
         }
 
         /*foreach($query as $index => $value):

@@ -17,16 +17,12 @@ function log_submit() {
     let request = new Request(url, initRequest);
 
     fetch(request).then(response => {
-        if(response.status >= 400 && response.status < 500) {
-            throw Error(response.status);
-        }
-
         if(!response.ok) {
             throw Error(response.status);
         }
         return response.text();
     }).then(function(response) {
-        alert(`${response}`);
+        window.location.assign('index.php/home/');
     }).catch(function(error) {
         alert(error);
     });

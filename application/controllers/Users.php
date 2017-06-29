@@ -6,7 +6,6 @@ class Users extends CI_Controller {
         $this->load->model('user_model');
         $this->load->helper('url_helper');
         $this->load->library('form_validation');
-
     }
 
     public function log_in() {
@@ -15,14 +14,14 @@ class Users extends CI_Controller {
         $this->form_validation->set_rules('passcode', 'Password', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            echo "no data";
+            $this->output->set_status_header(400);
         } else {
-            $query = $this->user_model->log_in($this->input->get_post('user', TRUE), html_escape($this->input->get_post('passcode', TRUE)));
+            $query = $this->user_model->log_in(html_escape($this->input->get_post('user', TRUE)), html_escape($this->input->get_post('passcode', TRUE)));
 
             if(isset($query)) {
-                echo "User found: " . $query['name'];
+                $this->output->set_status_header(200);
             } else {
-                echo "User not found";
+                $this->output->set_status_header(403);
             }
         }
 

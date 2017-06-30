@@ -9,6 +9,7 @@ class Users extends CI_Controller {
     }
 
     public function log_in() {
+        $this->load->helper('cookie');
 
         $this->form_validation->set_rules('user', 'Username', 'required');
         $this->form_validation->set_rules('passcode', 'Password', 'required');
@@ -24,6 +25,18 @@ class Users extends CI_Controller {
             $query = $this->user_model->log_in(html_escape($this->input->get_post('user', TRUE)), html_escape($this->input->get_post('passcode', TRUE)));
 
             if(isset($query)) {
+
+                $cookie = array(
+                    'name'   => 'Session',
+                    'value'  => 'The Value',
+                    'expire' => '7200',
+                    'domain' => base_url(),
+                    'path'   => '/',
+                    'prefix' => '_Session',
+                    'secure' => TRUE
+                );
+                
+
                 $this->output->set_status_header(200);
             } else {
                 $this->output->set_status_header(403);

@@ -16,6 +16,11 @@ class Users extends CI_Controller {
         if ($this->form_validation->run() === FALSE) {
             $this->output->set_status_header(400);
         } else {
+
+            $password = html_escape($this->input->get_post('passcode', TRUE));
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+
             $query = $this->user_model->log_in(html_escape($this->input->get_post('user', TRUE)), html_escape($this->input->get_post('passcode', TRUE)));
 
             if(isset($query)) {

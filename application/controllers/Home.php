@@ -7,7 +7,12 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        echo 'hi there';
+        $test = password_hash("sistemas", PASSWORD_DEFAULT);
+
+        if(password_verify('sistemas', $test)) {
+            echo "deal with it";
+        }
+        
     }
 }
 ?>

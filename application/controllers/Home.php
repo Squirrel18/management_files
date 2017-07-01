@@ -1,5 +1,7 @@
 <?php
 
+use \Firebase\JWT\JWT;
+
 class Home extends CI_Controller {
 
     public function __construct() {
@@ -11,7 +13,7 @@ class Home extends CI_Controller {
         $test = password_hash("sistemas", PASSWORD_DEFAULT);
 
         if(password_verify('sistemas', $test)) {
-            echo "deal with it";
+            echo $this->input->get_request_header("Authorization");
         }
     }
 }

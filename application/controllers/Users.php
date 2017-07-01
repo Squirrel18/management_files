@@ -29,7 +29,7 @@ class Users extends CI_Controller {
             $query = $this->user_model->log_in(html_escape($this->input->get_post('user', TRUE)), html_escape($this->input->get_post('passcode', TRUE)));
 
             if(isset($query)) {
-                $private_key = "Private&#160;Key&#160;For&#160;Creative&#160;Med";
+                $private_key = base64_encode("Private&#160;Key&#160;For&#160;Creative&#160;Med");
                 $token = array(
                     "iss" => "http://example.org",
                     "aud" => "http://example.com",

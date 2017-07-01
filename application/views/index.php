@@ -1,7 +1,7 @@
 <script src="<?php echo base_url('js/index.js'); ?>"></script>
 
 </head>
-    <body>
+    <body onload="">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">

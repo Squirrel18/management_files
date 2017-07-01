@@ -20,8 +20,9 @@ function log_submit() {
         if(!response.ok) {
             throw Error(response.status);
         }
-        return response.text();
+        return response;
     }).then(function(response) {
+        localStorage.setItem("autho", response.headers.get('Authorization'));
         window.location.assign('index.php/home/');
     }).catch(function(error) {
         alert(error);

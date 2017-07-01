@@ -8,12 +8,23 @@ class autho {
         return localStorage.getItem("autho");
     }
 
-    sent_autho() {
+    send_autho() {
 
         let header = new Headers();
-        header.append("Authorization", this.get_autho);
+        header.append("Authorization", localStorage.getItem("autho"));
+        header.append("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+        header.append("Content-Type", "document");
 
-        fetch(this.path_to);
+        let init = { method: 'GET',
+                    mode: 'same-origin',
+                    cache: 'default',
+                    headers: header,
+                    credentials: 'same-origin'
+        };
+
+        let request = new Request(this.path_to, init);
+
+        fetch(request);
     }
 
 }

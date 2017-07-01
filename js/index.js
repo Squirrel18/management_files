@@ -23,10 +23,10 @@ function log_submit() {
         return response;
     }).then(function(response) {
         localStorage.setItem("autho", response.headers.get('Authorization'));
-        //window.location.assign('index.php/home/');
+        window.location.assign('index.php/home/');
 
-        let au = new autho("index.php/home/");
-        au.sent_autho();
+        /*let au = new autho("index.php/home/");
+        au.send_autho();*/
 
     }).catch(function(error) {
         alert(error);

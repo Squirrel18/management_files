@@ -1,4 +1,5 @@
 <?php
+
 class Home extends CI_Controller {
 
     public function __construct() {
@@ -12,13 +13,6 @@ class Home extends CI_Controller {
         if(password_verify('sistemas', $test)) {
             echo "deal with it";
         }
-        echo "<br>";
-
-        $jwtH = array("alg" => "HS256", "typ" => "JWT");
-        $jwtH = json_encode($jwtH);
-        echo $jwtH . "<br>";
-        echo base64_encode($jwtH);
-        
     }
 }
 ?>

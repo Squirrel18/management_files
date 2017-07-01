@@ -12,12 +12,12 @@ class Home extends CI_Controller {
         if(password_verify('sistemas', $test)) {
             echo "deal with it";
         }
+        echo "<br>";
 
-        echo base_url();
-
-        /*$p = new OAuthProvider();
-
-        $t = $p->generateToken(4);*/
+        $jwtH = array("alg" => "HS256", "typ" => "JWT");
+        $jwtH = json_encode($jwtH);
+        echo $jwtH . "<br>";
+        echo base64_encode($jwtH);
         
     }
 }
